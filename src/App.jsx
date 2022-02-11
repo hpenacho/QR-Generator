@@ -8,7 +8,7 @@ import darkTheme from './assets/darkTheme'
 import lightTheme from './assets/lightTheme';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { Grid } from '@mui/material';
-import QrApp from './components/QrApp'
+import QrAppSection from './components/QrAppSection'
 
 const App = () => {
   const [theme, setTheme] = useState(darkTheme)
@@ -37,7 +37,7 @@ const App = () => {
           minHeight="100vh"
         >
           <HeaderSection theme={theme} setTheme={setTheme} />
-          <QrApp />
+          <QrAppSection />
           <FooterSection />
         </Grid>
       </SnackbarProvider>
