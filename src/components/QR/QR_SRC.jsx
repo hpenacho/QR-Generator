@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
 import QRCode from 'qrcode';
 import { useSnackbar } from 'notistack';
+import { CardMedia } from '@mui/material';
 
-const QR = ({ text, options }) => {
+const QR_SRC = ({ text, options }) => {
     const [src, setSrc] = useState('')
     const { enqueueSnackbar } = useSnackbar();
 
@@ -11,7 +12,7 @@ const QR = ({ text, options }) => {
             try {
                 const data = await QRCode.toDataURL(text, options)
                 setSrc(data);
-                enqueueSnackbar((`QR code successfully generated`), { variant: 'success' })
+                // enqueueSnackbar((`QR code successfully generated`), { variant: 'success' })
 
             } catch (error) {
                 enqueueSnackbar((`${error.message}`), { variant: 'error' })
@@ -21,8 +22,12 @@ const QR = ({ text, options }) => {
     }, [text, options, enqueueSnackbar])
 
     return (
-        <img src={src} alt='qrImage'></img>
+        <CardMedia
+            component="img"
+            src={src}
+            alt="QR Image"
+        />
     )
 }
 
-export default QR;
+export default QR_SRC;
