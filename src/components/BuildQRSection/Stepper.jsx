@@ -6,7 +6,7 @@ import StepButton from '@mui/material/StepButton';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
-const steps = ['Choose QR type', 'Enter Content', 'Set Colors', 'Add Logo', 'Style Customization'];
+const steps = ['QR Type', 'Content', 'Colors', 'Logo', 'Customization', 'Finish'];
 
 export default function HorizontalNonLinearStepper() {
     const [activeStep, setActiveStep] = React.useState(0);
@@ -60,7 +60,7 @@ export default function HorizontalNonLinearStepper() {
 
     return (
         <Box sx={{ width: '100%' }}>
-            <Stepper nonLinear activeStep={activeStep}>
+            <Stepper alternativeLabel nonLinear activeStep={activeStep}>
                 {steps.map((label, index) => (
                     <Step key={label} completed={completed[index]}>
                         <StepButton color="inherit" onClick={handleStep(index)}>

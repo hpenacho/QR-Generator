@@ -17,7 +17,7 @@ const HeaderSection = ({ theme, setTheme }) => {
                         src={logo}
                         width="300"
                         height='80'
-                        objectFit='contain'
+                    //objectFit='contain'
                     />
                 </Grid>
                 <Grid item>
