@@ -47,7 +47,7 @@ const DialogSlide = ({ info }) => {
 
         <div>
             <Button size={"60"} variant="Filled" onClick={handleClickOpen} startIcon={info.icon}>
-                <Typography display={{ xs: 'none', sm: 'block' }} fontSize={14}>{info.title}</Typography>
+                <Typography display={{ xs: 'none', md: 'block' }} fontSize={12.5}>{info.title}</Typography>
             </Button>
 
             <Dialog

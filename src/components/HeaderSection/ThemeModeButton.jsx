@@ -1,8 +1,8 @@
 import { IconButton } from "@mui/material";
 import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
-import darkTheme from '../../assets/darkTheme'
-import lightTheme from '../../assets/lightTheme'
+import darkTheme from '../../assets/theme/darkTheme'
+import lightTheme from '../../assets/theme/lightTheme'
 import Tooltip from '@mui/material/Tooltip';
 
 const ThemeModeButton = ({ theme, setTheme }) => {

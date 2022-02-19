@@ -1,38 +1,35 @@
 import { createTheme } from '@mui/material/styles';
 
-const darktheme = createTheme(
+const lighttheme = createTheme(
     {
         palette: {
-            mode: 'dark',
+            mode: 'light',
             primary: {
-                main: '#161616',
+                main: '#B2B6D8',
+                mainGradient: "linear-gradient(to right bottom, #fdfcfb, #e2d1c3)"
             },
             secondary: {
-                main: '#212121',
+                main: '#c6c9e2',
             },
             background: {
-                default: '#0f0f0f',
-                paper: '#2a2a2a',
+                default: '#f1f2f8',
+                paper: '#d2d3db',
             },
             textColor: {
-                default: '#E8E9F6',
-                weaker: '#B8B8B8',
+                default: '#2A2A2A',
+                weaker: '#3C3C3C',
                 subdued: '#5E5E5E'
             },
             detailsModal: {
-                main: '#1e1e1e',
-                section: '#2a2a2a',
+                main: '#A6A7BB',
+                section: '#d2d3db',
             },
             alertModal: {
-                main: '#1e1e1e',
-                secondary: '#2a2a2a'
-            },
-            logoTitle: {
-                textMain: '#EF9C00',
-                textSub: '#595959'
+                main: '#d2d3db',
+                secondary: '#f1f2f8'
             },
             aboutTitle: {
-                main: '#B9B9B9'
+                main: '#47474E'
             }
         },
         components: {
@@ -41,24 +38,24 @@ const darktheme = createTheme(
                     root: {
                         transition: "transform 0.17s ease-in-out",
                         "&:hover": { transform: "scale3d(1.16, 1.16, 1)", background: 'none', },
-                    },
+                    }
                 }
             },
             MuiTabs: {
                 styleOverrides: {
                     indicator: {
-                        backgroundColor: '#BC7200'
+                        backgroundColor: '#00B6FF'
                     }
                 }
             },
             MuiTab: {
                 styleOverrides: {
                     root: {
-                        "&.Mui-selected": { color: '#FF9B00' }
+                        "&.Mui-selected": { color: '#0066B6' }
                     }
                 }
-            }
+            },
         },
     })
 
-export default darktheme;
+export default lighttheme;

@@ -1,14 +1,13 @@
 import { useEffect, useState } from 'react'
-import { SnackbarProvider } from 'notistack';
 import { ThemeProvider } from '@mui/material/styles'
-import HeaderSection from './components/Header/HeaderSection'
-import FooterSection from './components/Footer/FooterSection'
+import Header from './components/HeaderSection/Header'
+import Footer from './components/FooterSection/Footer'
 import { CssBaseline } from '@mui/material';
-import darkTheme from './assets/darkTheme'
-import lightTheme from './assets/lightTheme';
+import darkTheme from './assets/theme/darkTheme'
+import lightTheme from './assets/theme/lightTheme';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { Grid } from '@mui/material';
-import QrAppSection from './components/QrAppSection'
+import BuildQrContainer from './components/BuildQRSection/BuildQrContainer'
 
 const App = () => {
   const [theme, setTheme] = useState(darkTheme)
@@ -29,18 +28,16 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline enableColorScheme />
-      <SnackbarProvider maxSnack={3}>
-        <Grid
-          container
-          direction="column"
-          justifyContent="space-between"
-          minHeight="100vh"
-        >
-          <HeaderSection theme={theme} setTheme={setTheme} />
-          <QrAppSection />
-          <FooterSection />
-        </Grid>
-      </SnackbarProvider>
+      <Grid
+        container
+        direction="column"
+        justifyContent="space-between"
+        minHeight="100vh"
+      >
+        <Header theme={theme} setTheme={setTheme} />
+        <BuildQrContainer />
+        <Footer />
+      </Grid>
     </ThemeProvider >
   );
 }
