@@ -5,8 +5,11 @@ import Step from '@mui/material/Step';
 import StepButton from '@mui/material/StepButton';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { Grid } from '@mui/material';
+import { Stack } from '@mui/material';
+import PreviewContainer from './QR/PreviewContainer'
 
-const steps = ['QR Type', 'Content', 'Colors', 'Logo', 'Customization', 'Finish'];
+const steps = ['QR Type', 'Content', 'Colors', 'Logo', 'Style', 'Finish'];
 
 export default function HorizontalNonLinearStepper() {
     const [activeStep, setActiveStep] = React.useState(0);
@@ -60,58 +63,67 @@ export default function HorizontalNonLinearStepper() {
 
     return (
         <Box sx={{ width: '100%' }}>
-            <Stepper alternativeLabel nonLinear activeStep={activeStep}>
-                {steps.map((label, index) => (
-                    <Step key={label} completed={completed[index]}>
-                        <StepButton color="inherit" onClick={handleStep(index)}>
-                            {label}
-                        </StepButton>
-                    </Step>
-                ))}
-            </Stepper>
-            <div>
-                {allStepsCompleted() ? (
-                    <React.Fragment>
-                        <Typography sx={{ mt: 2, mb: 1 }}>
-                            All steps completed - you&apos;re finished
-                        </Typography>
-                        <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
-                            <Box sx={{ flex: '1 1 auto' }} />
-                            <Button onClick={handleReset}>Reset</Button>
-                        </Box>
-                    </React.Fragment>
-                ) : (
-                    <React.Fragment>
-                        <Typography sx={{ mt: 2, mb: 1 }}>Step {activeStep + 1}</Typography>
-                        <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
-                            <Button
-                                color="inherit"
-                                disabled={activeStep === 0}
-                                onClick={handleBack}
-                                sx={{ mr: 1 }}
-                            >
-                                Back
-                            </Button>
-                            <Box sx={{ flex: '1 1 auto' }} />
-                            <Button onClick={handleNext} sx={{ mr: 1 }}>
-                                Next
-                            </Button>
-                            {activeStep !== steps.length &&
-                                (completed[activeStep] ? (
-                                    <Typography variant="caption" sx={{ display: 'inline-block' }}>
-                                        Step {activeStep + 1} already completed
-                                    </Typography>
-                                ) : (
-                                    <Button onClick={handleComplete}>
-                                        {completedSteps() === totalSteps() - 1
-                                            ? 'Finish'
-                                            : 'Complete Step'}
+            <Grid container>
+                <Grid item md={7} lg={8} py={2}>
+                    <Stepper alternativeLabel nonLinear activeStep={activeStep}>
+                        {steps.map((label, index) => (
+                            <Step key={label} completed={completed[index]}>
+                                <StepButton color="inherit" onClick={handleStep(index)}>
+                                    {label}
+                                </StepButton>
+                            </Step>
+                        ))}
+                    </Stepper>
+                    <div>
+
+                        {allStepsCompleted() ? (
+                            <React.Fragment>
+                                <Typography sx={{ mt: 2, mb: 1 }}>
+                                    All steps completed - you&apos;re finished
+                                </Typography>
+                                <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
+                                    <Box sx={{ flex: '1 1 auto' }} />
+                                    <Button onClick={handleReset}>Reset</Button>
+                                </Box>
+                            </React.Fragment>
+                        ) : (
+                            <React.Fragment>
+                                <Typography sx={{ mt: 2, mb: 1 }}>Step {activeStep + 1}</Typography>
+                                <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
+                                    <Button
+                                        color="inherit"
+                                        disabled={activeStep === 0}
+                                        onClick={handleBack}
+                                        sx={{ mr: 1 }}
+                                    >
+                                        Back
                                     </Button>
-                                ))}
-                        </Box>
-                    </React.Fragment>
-                )}
-            </div>
-        </Box>
+                                    <Box sx={{ flex: '1 1 auto' }} />
+                                    <Button onClick={handleNext} sx={{ mr: 1 }}>
+                                        Next
+                                    </Button>
+                                    {activeStep !== steps.length &&
+                                        (completed[activeStep] ? (
+                                            <Typography variant="caption" sx={{ display: 'inline-block' }}>
+                                                Step {activeStep + 1} already completed
+                                            </Typography>
+                                        ) : (
+                                            <Button onClick={handleComplete}>
+                                                {completedSteps() === totalSteps() - 1
+                                                    ? 'Finish'
+                                                    : 'Complete Step'}
+                                            </Button>
+                                        ))}
+                                </Box>
+                            </React.Fragment>
+                        )}
+                    </div>
+                </Grid>
+                <Grid container item md={5} lg={4} justifyContent='flex-end' >
+                    <PreviewContainer />
+                </Grid>
+            </Grid >
+        </Box >
+
     );
 }
