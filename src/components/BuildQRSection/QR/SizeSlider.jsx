@@ -2,15 +2,12 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
 import { useState } from 'react';
-import { Stack } from '@mui/material';
 import { Typography } from '@mui/material';
 import { Grid } from '@mui/material';
 
 function valuetext(value) {
     return `${value}°C`;
 }
-
-
 
 export default function SizeSlider() {
     const [value, setValue] = useState(1000);

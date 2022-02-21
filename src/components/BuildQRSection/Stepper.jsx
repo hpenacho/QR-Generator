@@ -6,10 +6,10 @@ import StepButton from '@mui/material/StepButton';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Grid } from '@mui/material';
-import { Stack } from '@mui/material';
 import PreviewContainer from './QR/PreviewContainer'
+import StepSwitcher from './Settings/StepSwitcher';
 
-const steps = ['QR Type', 'Content', 'Colors', 'Logo', 'Style', 'Finish'];
+const steps = ['Content', 'Colors', 'Logo', 'Style', 'Finish'];
 
 export default function HorizontalNonLinearStepper() {
     const [activeStep, setActiveStep] = React.useState(0);
@@ -88,7 +88,7 @@ export default function HorizontalNonLinearStepper() {
                             </React.Fragment>
                         ) : (
                             <React.Fragment>
-                                <Typography sx={{ mt: 2, mb: 1 }}>Step {activeStep + 1}</Typography>
+                                <StepSwitcher activeStep={activeStep} />
                                 <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
                                     <Button
                                         color="inherit"
