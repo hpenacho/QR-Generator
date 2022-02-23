@@ -1,7 +1,7 @@
-const STEP3_LOGO = () => {
+const Logo = () => {
     return (
         'template logo choice or upload'
     )
 }
 
-export default STEP3_LOGO;
+export default Logo;

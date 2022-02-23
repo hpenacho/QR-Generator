@@ -1,7 +1,7 @@
-const STEP5_FINISH = () => {
+const Finish = () => {
     return (
         'summary of choices, extra big download button'
     )
 }
 
-export default STEP5_FINISH;
+export default Finish;

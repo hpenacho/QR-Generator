@@ -1,7 +1,7 @@
-const STEP4_STYLE = () => {
+const Style = () => {
     return (
         'Stylize QR shapes here'
     )
 }
 
-export default STEP4_STYLE;
+export default Style;

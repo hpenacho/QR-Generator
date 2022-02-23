@@ -8,8 +8,9 @@ import Typography from '@mui/material/Typography';
 import { Grid } from '@mui/material';
 import PreviewContainer from './QR/PreviewContainer'
 import StepSwitcher from './Settings/StepSwitcher';
+import { Divider } from '@mui/material';
 
-const steps = ['Content', 'Colors', 'Logo', 'Style', 'Finish'];
+const steps = ['Type', 'Content', 'Colors', 'Logo', 'Style', 'Finish'];
 
 export default function HorizontalNonLinearStepper() {
     const [activeStep, setActiveStep] = React.useState(0);
@@ -88,7 +89,12 @@ export default function HorizontalNonLinearStepper() {
                             </React.Fragment>
                         ) : (
                             <React.Fragment>
-                                <StepSwitcher activeStep={activeStep} />
+                                <Box p={2} >
+                                    <Divider />
+                                </Box>
+                                <Box px={1.5}>
+                                    <StepSwitcher activeStep={activeStep} />
+                                </Box>
                                 <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
                                     <Button
                                         color="inherit"
