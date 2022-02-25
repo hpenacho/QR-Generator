@@ -1,6 +1,11 @@
+import useFormPicker from "../../../../hooks/useFormPicker";
+
 const Content = ({ qrType }) => {
+    const form = useFormPicker(qrType)
     return (
-        `current QR type is: ${qrType}`
+        <>
+            {form}
+        </>
     )
 }
 

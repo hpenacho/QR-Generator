@@ -6,9 +6,7 @@ const BuildQrContainer = () => {
 
     return (
         <Container maxWidth="lg">
-            <Paper elevation={4} sx={{ borderRadius: 2 }}>
-                <HorizontalNonLinearStepper />
-            </Paper>
+            <HorizontalNonLinearStepper />
         </Container>
     )
 }

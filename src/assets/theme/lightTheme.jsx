@@ -33,14 +33,6 @@ const lighttheme = createTheme(
             }
         },
         components: {
-            MuiButton: {
-                styleOverrides: {
-                    root: {
-                        transition: "transform 0.17s ease-in-out",
-                        "&:hover": { transform: "scale3d(1.16, 1.16, 1)", background: 'none', },
-                    }
-                }
-            },
             MuiTabs: {
                 styleOverrides: {
                     indicator: {
