@@ -6,22 +6,20 @@ import Style from "./Step5_Style/Style";
 import Finish from "./Step6_Finish/Finish";
 import { useState } from "react";
 
-const StepSwitcher = ({ activeStep }) => {
+const StepSwitcher = ({ activeStep, setActiveStep }) => {
     const [qrType, setQrType] = useState('URL')
     const [qrData, setQrData] = useState('')
 
     switch (activeStep) {
         case 0:
-            return <Type setQrType={setQrType} />
+            return <Content qrType={qrType} setQrType={setQrType} setQrData={setQrData} />
         case 1:
-            return <Content qrType={qrType} setQrData={setQrData} />
-        case 2:
             return <Colors setQrData={setQrData} />
-        case 3:
+        case 2:
             return <Logo setQrData={setQrData} />
-        case 4:
+        case 3:
             return <Style setQrData={setQrData} />
-        case 5:
+        case 4:
             return <Finish setQrData={setQrData} />
         default:
             return 'whoops'

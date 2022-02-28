@@ -6,6 +6,7 @@ import Location from "../components/BuildQRSection/Settings/Step2_Content/forms/
 import Event from "../components/BuildQRSection/Settings/Step2_Content/forms/Event";
 import Wifi from "../components/BuildQRSection/Settings/Step2_Content/forms/Wifi";
 import Crypto from "../components/BuildQRSection/Settings/Step2_Content/forms/Crypto";
+import Email from "../components/BuildQRSection/Settings/Step2_Content/forms/Email";
 import Sms from "../components/BuildQRSection/Settings/Step2_Content/forms/Sms";
 
 const useFormPicker = (qrType) => {
@@ -27,6 +28,8 @@ const useFormPicker = (qrType) => {
                 setForm(<Wifi />); break;
             case 'CRYPTO':
                 setForm(<Crypto />); break;
+            case 'EMAIL':
+                setForm(<Email />); break;
             case 'SMS':
                 setForm(<Sms />); break;
             default:

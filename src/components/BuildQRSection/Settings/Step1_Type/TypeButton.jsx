@@ -4,7 +4,7 @@ import { Stack } from '@mui/material';
 import { Button, Typography } from "@mui/material";
 import { SvgIcon } from '@mui/material';
 
-const TypeButton = ({ setQrType, icon, text }) => {
+const TypeButton = ({ setQrType, setActiveStep, icon, text }) => {
 
     const CustomizedButton = styled(Button)({
         width: 150,
@@ -16,8 +16,8 @@ const TypeButton = ({ setQrType, icon, text }) => {
     });
 
     const handleClick = () => {
-        console.log(text)
         setQrType(text)
+        setActiveStep(1)
     }
 
     return (

@@ -13,27 +13,34 @@ import { Grid } from '@mui/material';
 import QrCode2Icon from '@mui/icons-material/QrCode2';
 import TypeButton from './TypeButton';
 
-const Type = ({ setQrType }) => {
+const TypeArray = [
+    { text: 'URL', icon: <LinkIcon /> },
+    { text: 'TEXT', icon: <TextSnippetIcon /> },
+    { text: 'VCARD', icon: <ContactsIcon /> },
+    { text: 'LOCATION', icon: <LocationOnIcon /> },
+    { text: 'EMAIL', icon: <EmailIcon /> },
+    { text: 'SMS', icon: <SmsIcon /> },
+    { text: 'WIFI', icon: <NetworkWifiIcon /> },
+    { text: 'EVENT', icon: <EventNoteIcon /> },
+    { text: 'CRYPTO', icon: <MonetizationOnIcon /> }
+];
+
+const Type = ({ setQrType, setActiveStep }) => {
 
 
     return (
         <>
-            <Box pb={2} display="flex"
-                justifyContent="center"
+            <Box pb={2}
                 alignItems="center">
                 <QrCode2Icon sx={{ fontSize: 40 }} />
                 <Typography color={'green'} fontSize={28} fontFamily={'exo'} > QR Type </Typography>
             </Box>
+
+
             <Grid container spacing={2}>
-                <TypeButton setQrType={setQrType} icon={<LinkIcon />} text='URL' />
-                <TypeButton setQrType={setQrType} icon={<TextSnippetIcon />} text='TEXT' />
-                <TypeButton setQrType={setQrType} icon={<ContactsIcon />} text='VCARD' />
-                <TypeButton setQrType={setQrType} icon={<LocationOnIcon />} text='LOCATION' />
-                <TypeButton setQrType={setQrType} icon={<EmailIcon />} text='EMAIL' />
-                <TypeButton setQrType={setQrType} icon={<SmsIcon />} text='SMS' />
-                <TypeButton setQrType={setQrType} icon={<NetworkWifiIcon />} text='WIFI' />
-                <TypeButton setQrType={setQrType} icon={<EventNoteIcon />} text='EVENT' />
-                <TypeButton setQrType={setQrType} icon={<MonetizationOnIcon />} text='CRYPTO' />
+                {TypeArray.map((element, index) => (
+                    <TypeButton key={index} setActiveStep={setActiveStep} setQrType={setQrType} icon={element.icon} text={element.text} />
+                ))}
             </Grid>
         </>
     )

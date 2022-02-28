@@ -5,46 +5,55 @@ import {
     TextField
 } from "@mui/material";
 import { Controller, useForm } from "react-hook-form";
+import { InputAdornment } from "@mui/material";
+import LinkIcon from '@mui/icons-material/Link';
+import { Box } from "@mui/material";
+
 
 export default function Url() {
     const { control, handleSubmit } = useForm({
         defaultValues: {
-            textField: "",
-            checkbox: false
+            textField: "https://www.linkedin.com/in/hugopenacho/",
         }
     });
 
     const onSubmit = (values) => alert(JSON.stringify(values));
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <Controller
-                control={control}
-                name="textField"
-                render={({ field }) => (
-                    // Material UI TextField already supports
-                    // `value` and `onChange`
-                    <TextField {...field} label="Text field" />
-                )}
-            />
-            <br />
+        <center>
+            <form onSubmit={handleSubmit(onSubmit)}>
+                <Controller
+                    control={control}
+                    name="textField"
+                    render={({ field }) => (
+                        // Material UI TextField already supports
+                        // `value` and `onChange`
+                        <Box maxWidth={400}
+                        >
+                            <TextField
+                                {...field}
+                                fullWidth
+                                id="input-with-icon-textfield"
+                                label="URL"
+                                InputProps={{
+                                    endAdornment: (
+                                        <InputAdornment position="end">
+                                            <LinkIcon />
+                                        </InputAdornment>
+                                    ),
+                                }}
 
-            <Controller
-                control={control}
-                name="checkbox"
-                render={({ field: { value, onChange } }) => (
-                    // Checkbox accepts its value as `checked`
-                    // so we need to connect the props here
-                    <FormControlLabel
-                        control={<Checkbox checked={value} onChange={onChange} />}
-                        label="I am a checkbox"
-                    />
-                )}
-            />
-            <br />
-            <Button type="submit" variant="contained" color="primary">
-                Submit
-            </Button>
-        </form>
+                            />
+                        </Box>
+                    )}
+                />
+                <br />
+
+
+                <Button type="submit" variant="contained" color="primary">
+                    Submit
+                </Button>
+            </form>
+        </center>
     );
 }
