@@ -28,11 +28,12 @@ export default function Url() {
                     render={({ field }) => (
                         // Material UI TextField already supports
                         // `value` and `onChange`
-                        <Box maxWidth={400}
+                        <Box
                         >
                             <TextField
                                 {...field}
                                 fullWidth
+                                sx={{ maxWidth: 450 }}
                                 id="input-with-icon-textfield"
                                 label="URL"
                                 InputProps={{
@@ -54,6 +55,6 @@ export default function Url() {
                     Submit
                 </Button>
             </form>
-        </center>
+        </center >
     );
 }

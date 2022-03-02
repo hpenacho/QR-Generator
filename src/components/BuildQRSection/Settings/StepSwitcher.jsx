@@ -6,8 +6,7 @@ import Style from "./Step5_Style/Style";
 import Finish from "./Step6_Finish/Finish";
 import { useState } from "react";
 
-const StepSwitcher = ({ activeStep, setActiveStep }) => {
-    const [qrType, setQrType] = useState('URL')
+const StepSwitcher = ({ activeStep, setActiveStep, qrType, setQrType }) => {
     const [qrData, setQrData] = useState('')
 
     switch (activeStep) {

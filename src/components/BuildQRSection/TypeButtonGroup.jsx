@@ -26,7 +26,7 @@ const TypeArray = [
 const TypeButtonGroup = ({ type, setType }) => {
 
     const TypeButton = styled(ToggleButton)({
-        backgroundColor: '#191919',
+        backgroundColor: '#1C1C1C',
         "&.Mui-selected, &.Mui-selected:hover": {
             color: "white",
             backgroundColor: '#94c973'
@@ -49,12 +49,10 @@ const TypeButtonGroup = ({ type, setType }) => {
             onChange={handleChange}
             aria-label="Type selection"
         >
-
             {TypeArray.map((element, index) => (
                 <TypeButton key={index} value={element.type}> {element.icon} </TypeButton>
             ))}
         </ToggleButtonGroup>
-
     )
 }
 

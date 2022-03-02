@@ -2,11 +2,14 @@ import * as React from 'react';
 import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
 import StepButton from '@mui/material/StepButton';
+import { Typography } from '@mui/material';
 
 const StepperQr = ({ steps, activeStep, setActiveStep }) => {
 
     return (
-        <Stepper alternativeLabel nonLinear activeStep={activeStep}>
+        <Stepper
+            nonLinear
+            activeStep={activeStep}>
             {steps.map((label, index) => (
                 <Step key={label}>
                     <StepButton color="inherit" onClick={() => { setActiveStep(index) }}>
@@ -19,3 +22,11 @@ const StepperQr = ({ steps, activeStep, setActiveStep }) => {
 }
 
 export default StepperQr;
+
+
+/*const labelProps = {};
+          if (isStepOptional(index)) {
+            labelProps.optional = (
+              <Typography variant="caption">Optional</Typography>
+            );
+          } */
