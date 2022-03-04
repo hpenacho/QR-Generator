@@ -9,33 +9,33 @@ import Crypto from "../components/BuildQRSection/Settings/Step2_Content/forms/Cr
 import Email from "../components/BuildQRSection/Settings/Step2_Content/forms/Email";
 import Sms from "../components/BuildQRSection/Settings/Step2_Content/forms/Sms";
 
-const useFormPicker = (qrType) => {
+const useFormPicker = (qrType, options, setOptions) => {
     const [form, setForm] = useState('')
 
     useEffect(() => {
         switch (qrType) {
             case 'URL':
-                setForm(<Url />); break;
+                setForm(<Url options={options} setOptions={setOptions} />); break;
             case 'TEXT':
-                setForm(<Text />); break;
+                setForm(<Text options={options} setOptions={setOptions} />); break;
             case 'VCARD':
-                setForm(<Vcard />); break;
+                setForm(<Vcard options={options} setOptions={setOptions} />); break;
             case 'LOCATION':
-                setForm(<Location />); break;
+                setForm(<Location options={options} setOptions={setOptions} />); break;
             case 'EVENT':
-                setForm(<Event />); break;
+                setForm(<Event options={options} setOptions={setOptions} />); break;
             case 'WIFI':
-                setForm(<Wifi />); break;
+                setForm(<Wifi options={options} setOptions={setOptions} />); break;
             case 'CRYPTO':
-                setForm(<Crypto />); break;
+                setForm(<Crypto options={options} setOptions={setOptions} />); break;
             case 'EMAIL':
-                setForm(<Email />); break;
+                setForm(<Email options={options} setOptions={setOptions} />); break;
             case 'SMS':
-                setForm(<Sms />); break;
+                setForm(<Sms options={options} setOptions={setOptions} />); break;
             default:
-                setForm(<Url />); break;
+                setForm(<Url options={options} setOptions={setOptions} />); break;
         }
-    }, [qrType])
+    }, [qrType, options, setOptions])
 
     return form;
 }

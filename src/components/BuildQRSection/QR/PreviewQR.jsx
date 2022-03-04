@@ -1,11 +1,14 @@
 import { CardMedia } from "@mui/material";
+import useShowPreviewQR from "../../../hooks/useShowPreviewQR";
 
-const PreviewWindow = () => {
+const PreviewWindow = ({ qrCode }) => {
+    const ref = useShowPreviewQR(qrCode);
+
     return (
         <>
             <CardMedia
                 sx={{ backgroundColor: 'white', padding: 1 }}
-                component="img"
+                ref={ref}
                 height="344"
                 width="344"
                 image="/static/images/cards/contemplative-reptile.jpg"

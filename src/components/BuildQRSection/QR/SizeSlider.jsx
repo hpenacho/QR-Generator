@@ -9,7 +9,7 @@ function valuetext(value) {
     return `${value}°C`;
 }
 
-export default function SizeSlider() {
+export default function SizeSlider({ options, setOptions }) {
     const [value, setValue] = useState(1000);
 
     const handleChange = (event, newValue) => {
@@ -29,17 +29,17 @@ export default function SizeSlider() {
                 onChange={handleChange}
             />
             <Grid container>
-                <Grid item xs={4} textAlign='left'>
+                <Grid item xs={3.5} textAlign='left'>
                     <Typography fontSize={13} gutterBottom>
                         Low Quality
                     </Typography>
                 </Grid>
-                <Grid item xs={4} textAlign='center'>
+                <Grid item xs={5} textAlign='center'>
                     <Typography fontWeight={'bold'} fontSize={14} gutterBottom>
                         {value} x {value} px
                     </Typography>
                 </Grid>
-                <Grid item xs={4} textAlign='right'>
+                <Grid item xs={3.5} textAlign='right'>
                     <Typography fontSize={13} gutterBottom>
                         High Quality
                     </Typography>

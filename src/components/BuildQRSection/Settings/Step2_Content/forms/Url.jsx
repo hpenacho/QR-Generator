@@ -1,23 +1,25 @@
-import {
-    Button,
-    Checkbox,
-    FormControlLabel,
-    TextField
-} from "@mui/material";
+import { Button, TextField } from "@mui/material";
 import { Controller, useForm } from "react-hook-form";
 import { InputAdornment } from "@mui/material";
 import LinkIcon from '@mui/icons-material/Link';
 import { Box } from "@mui/material";
 
-
-export default function Url() {
+const Url = ({ options, setOptions }) => {
     const { control, handleSubmit } = useForm({
         defaultValues: {
             textField: "https://www.linkedin.com/in/hugopenacho/",
         }
     });
 
-    const onSubmit = (values) => alert(JSON.stringify(values));
+    //const onSubmit = (values) => alert(JSON.stringify(values));
+
+    const onSubmit = (values) => {
+        setOptions(options => ({
+            ...options,
+            data: values.textField
+        }));
+    };
+
 
     return (
         <center>
@@ -50,11 +52,12 @@ export default function Url() {
                 />
                 <br />
 
-
                 <Button type="submit" variant="contained" color="primary">
-                    Submit
+                    Update QR
                 </Button>
             </form>
         </center >
     );
 }
+
+export default Url;

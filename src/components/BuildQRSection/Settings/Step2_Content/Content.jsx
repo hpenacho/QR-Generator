@@ -3,8 +3,8 @@ import { Stack } from "@mui/material";
 import { Box, Grid } from "@mui/material";
 import { Typography } from "@mui/material";
 
-const Content = ({ qrType, setQrType }) => {
-    const form = useFormPicker(qrType)
+const Content = ({ qrType, options, setOptions }) => {
+    const form = useFormPicker(qrType, options, setOptions)
 
     return (
         <>
