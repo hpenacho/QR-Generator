@@ -41,7 +41,7 @@ const BuildQrContainer = () => {
                     <StepperQr steps={steps} activeStep={activeStep} setActiveStep={setActiveStep} />
                 </Box>
 
-                <Button fullWidth sx={{ maxWidth: 340 }} variant='contained' onClick={handleReset}>
+                <Button fullWidth sx={{ maxWidth: 310 }} variant='contained' onClick={handleReset}>
                     <StyleIcon />  Style Templates
                 </Button>
             </Stack>

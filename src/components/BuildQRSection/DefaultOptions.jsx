@@ -12,7 +12,7 @@ const DefaultOptions = {
     imageOptions: {
         hideBackgroundDots: true,
         imageSize: 0.4,
-        margin: 20,
+        margin: 15,
         crossOrigin: 'anonymous',
     },
     dotsOptions: {

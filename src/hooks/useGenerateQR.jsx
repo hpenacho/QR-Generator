@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import QRCodeStyling from "qr-code-styling";
 
 const useGenerateQR = (options) => {
-    console.log(options)
     const [qrCode] = useState(new QRCodeStyling(options));
 
     useEffect(() => {
