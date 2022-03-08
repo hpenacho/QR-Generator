@@ -34,7 +34,6 @@ const TypeButtonGroup = ({ type, setType }) => {
     });
 
     const handleChange = (event, chosenType) => {
-        console.log(chosenType)
         if (chosenType !== null) {
             setType(chosenType);
         }

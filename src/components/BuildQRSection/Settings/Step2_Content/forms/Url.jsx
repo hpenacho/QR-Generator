@@ -1,62 +1,41 @@
 import { Button, TextField } from "@mui/material";
-import { Controller, useForm } from "react-hook-form";
 import { InputAdornment } from "@mui/material";
 import LinkIcon from '@mui/icons-material/Link';
 import { Box } from "@mui/material";
 
-const Url = ({ options, setOptions }) => {
-    const { control, handleSubmit } = useForm({
-        defaultValues: {
-            textField: "https://www.linkedin.com/in/hugopenacho/",
-        }
-    });
+const Url = ({ url, setUrl, setOptions }) => {
 
-    //const onSubmit = (values) => alert(JSON.stringify(values));
-
-    const onSubmit = (values) => {
+    const handleClick = () => {
         setOptions(options => ({
             ...options,
-            data: values.textField
+            data: url
         }));
     };
 
-
     return (
-        <center>
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <Controller
-                    control={control}
-                    name="textField"
-                    render={({ field }) => (
-                        // Material UI TextField already supports
-                        // `value` and `onChange`
-                        <Box
-                        >
-                            <TextField
-                                {...field}
-                                fullWidth
-                                sx={{ maxWidth: 450 }}
-                                id="input-with-icon-textfield"
-                                label="URL"
-                                InputProps={{
-                                    endAdornment: (
-                                        <InputAdornment position="end">
-                                            <LinkIcon />
-                                        </InputAdornment>
-                                    ),
-                                }}
+        <>
+            <TextField
+                value={url}
+                fullWidth
+                onChange={e => setUrl(e.target.value)}
+                id="url"
+                label="URL"
+                sx={{ maxWidth: 450 }}
+                maxRows={8}
+                InputProps={{
+                    endAdornment: (
+                        <InputAdornment position="end">
+                            <LinkIcon />
+                        </InputAdornment>
+                    ),
+                }}
 
-                            />
-                        </Box>
-                    )}
-                />
-                <br />
+            />
 
-                <Button type="submit" variant="contained" color="primary">
-                    Update QR
-                </Button>
-            </form>
-        </center >
+            <Button onClick={handleClick} type="submit" variant="contained" color="primary">
+                Update QR
+            </Button>
+        </>
     );
 }
 

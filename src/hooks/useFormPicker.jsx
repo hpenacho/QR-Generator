@@ -11,31 +11,56 @@ import Sms from "../components/BuildQRSection/Settings/Step2_Content/forms/Sms";
 
 const useFormPicker = (qrType, options, setOptions) => {
     const [form, setForm] = useState('')
+    const [multiText, setMultiText] = useState('This is \n a multine \n QR textfield!')
+    const [url, setUrl] = useState('https://www.linkedin.com/in/hugopenacho/')
+    const [email, setEmail] = useState('')
+    const [subject, setSubject] = useState('')
+    const [emailBody, setEmailBody] = useState('')
 
     useEffect(() => {
         switch (qrType) {
             case 'URL':
-                setForm(<Url options={options} setOptions={setOptions} />); break;
+                setForm(
+                    <Url
+                        url={url} setUrl={setUrl}
+                        setOptions={setOptions}
+                    />); break;
             case 'TEXT':
-                setForm(<Text options={options} setOptions={setOptions} />); break;
+                setForm(
+                    <Text
+                        multiText={multiText} setMultiText={setMultiText}
+                        setOptions={setOptions}
+                    />); break;
             case 'VCARD':
-                setForm(<Vcard options={options} setOptions={setOptions} />); break;
+                setForm(<Vcard setOptions={setOptions} />); break;
             case 'LOCATION':
-                setForm(<Location options={options} setOptions={setOptions} />); break;
+                setForm(<Location setOptions={setOptions} />); break;
             case 'EVENT':
-                setForm(<Event options={options} setOptions={setOptions} />); break;
+                setForm(<Event setOptions={setOptions} />); break;
             case 'WIFI':
-                setForm(<Wifi options={options} setOptions={setOptions} />); break;
+                setForm(<Wifi setOptions={setOptions} />); break;
             case 'CRYPTO':
-                setForm(<Crypto options={options} setOptions={setOptions} />); break;
+                setForm(<Crypto setOptions={setOptions} />); break;
             case 'EMAIL':
-                setForm(<Email options={options} setOptions={setOptions} />); break;
+                setForm(
+                    <Email
+                        email={email} setEmail={setEmail}
+                        subject={subject} setSubject={setSubject}
+                        emailBody={emailBody} setEmailBody={setEmailBody}
+                        setOptions={setOptions}
+                    />); break;
             case 'SMS':
-                setForm(<Sms options={options} setOptions={setOptions} />); break;
+                setForm(<Sms setOptions={setOptions} />); break;
             default:
-                setForm(<Url options={options} setOptions={setOptions} />); break;
+                setForm(<Url setOptions={setOptions} />); break;
         }
-    }, [qrType, options, setOptions])
+    }, [qrType,
+        url, setUrl,
+        multiText, setMultiText,
+        email, setEmail,
+        subject, setSubject,
+        emailBody, setEmailBody,
+        setOptions])
 
     return form;
 }

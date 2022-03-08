@@ -22,11 +22,3 @@ const StepperQr = ({ steps, activeStep, setActiveStep }) => {
 }
 
 export default StepperQr;
-
-
-/*const labelProps = {};
-          if (isStepOptional(index)) {
-            labelProps.optional = (
-              <Typography variant="caption">Optional</Typography>
-            );
-          } */

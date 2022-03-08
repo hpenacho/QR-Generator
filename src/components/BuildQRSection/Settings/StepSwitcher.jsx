@@ -3,22 +3,22 @@ import Colors from "./Step3_Colors/Colors";
 import Logo from "./Step4_Logo/Logo";
 import Style from "./Step5_Style/Style";
 import Finish from "./Step6_Finish/Finish";
-import { useState } from "react";
+import useFormPicker from "../../../hooks/useFormPicker";
 
-const StepSwitcher = ({ activeStep, setActiveStep, qrType, setQrType, options, setOptions }) => {
-    const [qrData, setQrData] = useState('')
+const StepSwitcher = ({ activeStep, setActiveStep, qrType, options, setOptions }) => {
+    const form = useFormPicker(qrType, options, setOptions)
 
     switch (activeStep) {
         case 0:
-            return <Content qrType={qrType} setQrType={setQrType} setQrData={setQrData} setOptions={setOptions} />
+            return <Content form={form} />
         case 1:
-            return <Colors setQrData={setQrData} options={options} setOptions={setOptions} />
+            return <Colors options={options} setOptions={setOptions} />
         case 2:
-            return <Logo setQrData={setQrData} options={options} setOptions={setOptions} />
+            return <Logo options={options} setOptions={setOptions} />
         case 3:
-            return <Style setQrData={setQrData} options={options} setOptions={setOptions} />
+            return <Style options={options} setOptions={setOptions} />
         case 4:
-            return <Finish setQrData={setQrData} options={options} setOptions={setOptions} />
+            return <Finish options={options} setOptions={setOptions} />
         default:
             return 'whoops'
     }

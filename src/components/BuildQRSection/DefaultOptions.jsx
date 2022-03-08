@@ -1,7 +1,7 @@
 const DefaultOptions = {
 
     type: 'svg',
-    data: 'http://qr-code-styling.com',
+    data: 'https://www.linkedin.com/in/hugopenacho/',
     image: '/favicon.ico',
     margin: 5,
     qrOptions: {
