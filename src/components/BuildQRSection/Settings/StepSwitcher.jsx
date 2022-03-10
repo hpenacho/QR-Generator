@@ -6,7 +6,7 @@ import Finish from "./Step6_Finish/Finish";
 import useFormPicker from "../../../hooks/useFormPicker";
 
 const StepSwitcher = ({ activeStep, setActiveStep, qrType, options, setOptions }) => {
-    const form = useFormPicker(qrType, options, setOptions)
+    const form = useFormPicker(qrType, setOptions)
 
     switch (activeStep) {
         case 0:

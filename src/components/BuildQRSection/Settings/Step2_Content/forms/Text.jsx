@@ -1,42 +1,46 @@
 import { Button, TextField } from "@mui/material";
-import { InputAdornment } from "@mui/material";
-import LinkIcon from '@mui/icons-material/Link';
-import { Box } from "@mui/material";
+import { useFormik } from "formik";
 import { Stack } from "@mui/material";
+import useFormHandleChange from "../../../../../hooks/useFormHandleChange";
+import useLocalStorage from "../../../../../hooks/useLocalStorage";
 
-const Text = ({ multiText, setMultiText, setOptions }) => {
+const Text = ({ setOptions }) => {
+    const [text, setText] = useLocalStorage("text", "")
 
-    const handleClick = () => {
-        setOptions(options => ({
-            ...options,
-            data: multiText
-        }));
-    };
+    const formik = useFormik({
+        initialValues: {
+            text: text,
+        },
+        onSubmit: values => {
+            setOptions(options => ({
+                ...options,
+                data: values.text
+            }))
+            setText(values.text)
+        },
+    });
+
+    const setInputValue = useFormHandleChange(formik);
 
     return (
-        <>
-            <TextField
-                value={multiText}
-                fullWidth
-                onChange={e => setMultiText(e.target.value)}
-                id="outlined-multiline-static"
-                label="Multiline"
-                multiline
-                sx={{ maxWidth: 550 }}
-                maxRows={8}
-                InputProps={{
-                    endAdornment: (
-                        <InputAdornment position="end">
-                            <LinkIcon />
-                        </InputAdornment>
-                    ),
-                }}
-
-            />
-            <Button onClick={handleClick} type="submit" variant="contained" color="primary">
-                Update QR
-            </Button>
-        </>
+        <form onSubmit={formik.handleSubmit}>
+            <Stack alignItems='center' spacing={2}>
+                <TextField
+                    fullWidth
+                    id="text"
+                    name="text"
+                    label="Multiline"
+                    value={formik.values.text}
+                    multiline
+                    onChange={(e) => setInputValue("text", e.target.value)}
+                    sx={{ maxWidth: 550 }}
+                    rows={6}
+                />
+                <Button type="submit" variant="contained" color="primary">
+                    Update QR
+                </Button>
+            </Stack>
+        </form>
     )
 }
 

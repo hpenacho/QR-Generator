@@ -8,9 +8,7 @@ const Content = ({ form }) => {
     return (
         <>
             <Box p={2}>
-                <Stack alignItems='center' spacing={2}>
-                    {form}
-                </Stack>
+                {form}
             </Box>
 
         </>
