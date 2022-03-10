@@ -5,20 +5,20 @@ import Style from "./Step5_Style/Style";
 import Finish from "./Step6_Finish/Finish";
 import useFormPicker from "../../../hooks/useFormPicker";
 
-const StepSwitcher = ({ activeStep, setActiveStep, qrType, options, setOptions }) => {
+const StepSwitcher = ({ activeStep, setActiveStep, qrType, setOptions }) => {
     const form = useFormPicker(qrType, setOptions)
 
     switch (activeStep) {
         case 0:
             return <Content form={form} />
         case 1:
-            return <Colors options={options} setOptions={setOptions} />
+            return <Colors setOptions={setOptions} />
         case 2:
-            return <Logo options={options} setOptions={setOptions} />
+            return <Logo setOptions={setOptions} />
         case 3:
-            return <Style options={options} setOptions={setOptions} />
+            return <Style setOptions={setOptions} />
         case 4:
-            return <Finish options={options} setOptions={setOptions} />
+            return <Finish setOptions={setOptions} />
         default:
             return 'whoops'
     }

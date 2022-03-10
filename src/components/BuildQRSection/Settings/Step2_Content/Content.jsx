@@ -1,7 +1,6 @@
-import useFormPicker from "../../../../hooks/useFormPicker";
-import { Stack } from "@mui/material";
-import { Box, Grid } from "@mui/material";
-import { Typography } from "@mui/material";
+
+import { Box } from "@mui/material";
+
 
 const Content = ({ form }) => {
 
