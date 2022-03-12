@@ -1,6 +1,7 @@
 import { useRef, useEffect } from "react";
 
 const useShowPreviewQR = (qrCode) => {
+
     const ref = useRef(null);
 
     useEffect(() => {

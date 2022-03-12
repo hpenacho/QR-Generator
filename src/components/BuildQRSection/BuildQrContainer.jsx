@@ -12,10 +12,12 @@ import { Stack } from "@mui/material";
 import ResetIcon from '@mui/icons-material/RestartAltRounded';
 import StyleIcon from '@mui/icons-material/Style';
 import TypeButtonGroup from "./TypeButtonGroup";
-import { Typography } from "@mui/material";
 import { IconButton } from "@mui/material";
 import DefaultOptions from "./DefaultOptions";
 import useGenerateQR from "../../hooks/useGenerateQR";
+import HelpIcon from '@mui/icons-material/HelpRounded';
+import { Tooltip } from "@mui/material";
+import { Grid } from "@mui/material";
 
 const steps = ['Content', 'Colors', 'Logo', 'Style', 'Finish'];
 
@@ -23,7 +25,6 @@ const BuildQrContainer = () => {
     const [activeStep, setActiveStep] = useState(0);
     const [qrType, setQrType] = useState('URL')
     const [options, setOptions] = useState(DefaultOptions)
-    const qrCode = useGenerateQR(options)
 
     const handleReset = () => {
         setActiveStep(0);
@@ -47,29 +48,38 @@ const BuildQrContainer = () => {
             </Stack>
 
             <Stack spacing={1.5} direction='row'>
-                <Stack p={0.6} sx={{ boxShadow: 2 }} borderRadius={4} spacing={2} backgroundColor='#191919' alignItems='center'>
-                    <Typography> QR Type </Typography>
+                <Stack px={1} pb={1.5} pt={0.5} sx={{ boxShadow: 2 }} borderRadius={4} spacing={0.5} backgroundColor='#191919' alignItems='center'>
+                    <Tooltip title="QR types, click for FAQ" placement="right">
+                        <IconButton >
+                            <HelpIcon />
+                        </IconButton>
+                    </Tooltip>
                     <TypeButtonGroup type={qrType} setType={setQrType} />
                 </Stack>
 
                 <Paper elevation={4} sx={{ flexGrow: 1, borderRadius: 3 }}>
-                    <Stack direction='row' >
-                        <Stack sx={{ flexGrow: 1 }} justifyContent={'space-between'}>
-                            placeholder title
-                            <CurrentStep
-                                activeStep={activeStep}
-                                setActiveStep={setActiveStep}
-                                qrType={qrType}
-                                setQrType={setQrType}
-                                setOptions={setOptions}
-                            />
-                            <Box display='flex' justifyContent='center'>
+                    <Grid container>
+                        <Grid container direction="column" item xs={12} md={6.8} justifyContent='space-between'>
+                            whatever
+                            <Grid>
+                                <CurrentStep
+                                    activeStep={activeStep}
+                                    setActiveStep={setActiveStep}
+                                    qrType={qrType}
+                                    setQrType={setQrType}
+                                    setOptions={setOptions}
+                                />
+                            </Grid>
+                            <Grid container item justifyContent='center'>
                                 <BackButton activeStep={activeStep} setActiveStep={setActiveStep} />
                                 <NextButton activeStep={activeStep} setActiveStep={setActiveStep} totalSteps={steps.length} />
-                            </Box>
-                        </Stack>
-                        <PreviewContainer qrCode={qrCode} />
-                    </Stack >
+                            </Grid>
+
+                        </Grid>
+                        <Grid item container xs={12} md={5.2} justifyContent='flex-end'>
+                            <PreviewContainer options={options} setOptions={setOptions} />
+                        </Grid>
+                    </Grid>
                 </Paper>
             </Stack>
         </Container >

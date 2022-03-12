@@ -10,6 +10,7 @@ import SmsIcon from '@mui/icons-material/Sms';
 import NetworkWifiIcon from '@mui/icons-material/NetworkWifi';
 import EventNoteIcon from '@mui/icons-material/EventNote';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
+import PhoneRounded from "@mui/icons-material/PhoneRounded";
 
 const TypeArray = [
     { type: 'URL', icon: <LinkIcon /> },
@@ -17,6 +18,7 @@ const TypeArray = [
     { type: 'VCARD', icon: <ContactsIcon /> },
     { type: 'LOCATION', icon: <LocationOnIcon /> },
     { type: 'EMAIL', icon: <EmailIcon /> },
+    { type: 'PHONE', icon: <PhoneRounded /> },
     { type: 'SMS', icon: <SmsIcon /> },
     { type: 'WIFI', icon: <NetworkWifiIcon /> },
     { type: 'EVENT', icon: <EventNoteIcon /> },

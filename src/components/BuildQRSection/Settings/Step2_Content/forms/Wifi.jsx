@@ -42,35 +42,34 @@ const Wifi = ({ setOptions }) => {
                     label="Wireless name (SSID)"
                     value={formik.values.wifiname}
                     onChange={(e) => setInputValue("wifiname", e.target.value)}
-                    sx={{ maxWidth: 450 }}
+                    sx={{ maxWidth: 400 }}
                 />
-                <Stack direction='row' spacing={2}>
-                    <TextField
-                        fullWidth
-                        id="password"
-                        name="password"
-                        label="Password"
-                        value={formik.values.password}
-                        onChange={(e) => setInputValue("password", e.target.value)}
-                        sx={{ maxWidth: 350 }}
-                    />
-                    <FormControl fullWidth>
-                        <InputLabel id="encryptionLabel">Encryption</InputLabel>
-                        <Select
-                            labelId="encryptionLabel"
-                            id="encryption"
-                            name="encryption"
-                            value={formik.values.encryption}
-                            label="Encryption"
-                            onChange={(e) => setInputValue("encryption", e.target.value)}
-                        >
-                            <MenuItem value={""}>None</MenuItem>
-                            <MenuItem value={"WEP"}>WEP</MenuItem>
-                            <MenuItem value={"WPA"}>WPA/WPA2</MenuItem>
-                        </Select>
-                    </FormControl>
+                <TextField
+                    fullWidth
+                    id="password"
+                    name="password"
+                    label="Password"
+                    value={formik.values.password}
+                    onChange={(e) => setInputValue("password", e.target.value)}
+                    sx={{ maxWidth: 300 }}
+                />
+                <FormControl>
+                    <InputLabel id="encryptionLabel">Encryption</InputLabel>
+                    <Select
+                        labelId="encryptionLabel"
+                        id="encryption"
+                        name="encryption"
+                        value={formik.values.encryption}
+                        label="Encryption"
+                        onChange={(e) => setInputValue("encryption", e.target.value)}
+                        sx={{ width: 148 }}
+                    >
+                        <MenuItem value={""}>None</MenuItem>
+                        <MenuItem value={"WEP"}>WEP</MenuItem>
+                        <MenuItem value={"WPA"}>WPA/WPA2</MenuItem>
+                    </Select>
+                </FormControl>
 
-                </Stack>
                 <Button type="submit" variant="contained" color="primary">
                     Update QR
                 </Button>

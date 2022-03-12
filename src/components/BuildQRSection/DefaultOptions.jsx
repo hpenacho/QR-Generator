@@ -1,6 +1,7 @@
 const DefaultOptions = {
-
-    type: 'svg',
+    height: 1000,
+    width: 1000,
+    type: 'canvas',
     data: 'https://www.linkedin.com/in/hugopenacho/',
     image: '/favicon.ico',
     margin: 5,

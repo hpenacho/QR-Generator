@@ -7,6 +7,7 @@ import Event from "../components/BuildQRSection/Settings/Step2_Content/forms/Eve
 import Wifi from "../components/BuildQRSection/Settings/Step2_Content/forms/Wifi";
 import Crypto from "../components/BuildQRSection/Settings/Step2_Content/forms/Crypto";
 import Email from "../components/BuildQRSection/Settings/Step2_Content/forms/Email";
+import Phone from "../components/BuildQRSection/Settings/Step2_Content/forms/Phone";
 import Sms from "../components/BuildQRSection/Settings/Step2_Content/forms/Sms";
 
 const useFormPicker = (qrType, setOptions) => {
@@ -30,6 +31,8 @@ const useFormPicker = (qrType, setOptions) => {
                 setForm(<Crypto setOptions={setOptions} />); break;
             case 'EMAIL':
                 setForm(<Email setOptions={setOptions} />); break;
+            case 'PHONE':
+                setForm(<Phone setOptions={setOptions} />); break;
             case 'SMS':
                 setForm(<Sms setOptions={setOptions} />); break;
             default:

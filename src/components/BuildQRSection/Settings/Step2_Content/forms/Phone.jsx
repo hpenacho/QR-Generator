@@ -13,23 +13,20 @@ const validationSchema = yup.object({
         .matches(/^((\+[1-9]{1,4}[ -]?)|(\([0-9]{2,3}\)[ -]?)|([0-9]{2,4})[ -]?)*?[0-9]{3,4}[ -]?[0-9]{3,4}$/, "Please insert a phone number")
 });
 
-const Sms = ({ setOptions }) => {
+const Phone = ({ setOptions }) => {
 
-    const [phone, setPhone] = useLocalStorage("smsphone", "+351 123 456 789")
-    const [message, setMessage] = useLocalStorage("smsmessage", "")
+    const [phone, setPhone] = useLocalStorage("phone", "+351 123 456 789")
     const formik = useFormik({
         initialValues: {
             phone: phone,
-            message: message,
         },
         validationSchema: validationSchema,
         onSubmit: values => {
             setOptions(options => ({
                 ...options,
-                data: `SMSTO:${values.phone.replace(/\s+/g, '')}:${values.message}`
+                data: `tel:${values.phone.replace(/\s+/g, '')}`
             }))
             setPhone(values.phone)
-            setMessage(values.message)
         },
     });
     const setInputValue = useFormHandleChange(formik);
@@ -49,18 +46,6 @@ const Sms = ({ setOptions }) => {
                     sx={{ maxWidth: 550 }}
                 />
 
-                <TextField
-                    fullWidth
-                    id="message"
-                    name='message'
-                    label="Message"
-                    value={formik.values.message}
-                    onChange={(e) => setInputValue("message", e.target.value)}
-                    multiline
-                    sx={{ maxWidth: 550 }}
-                    rows={6}
-                />
-
                 <Button type="submit" variant="contained" color="primary">
                     Update QR
                 </Button>
@@ -69,4 +54,4 @@ const Sms = ({ setOptions }) => {
     )
 }
 
-export default Sms;
+export default Phone;

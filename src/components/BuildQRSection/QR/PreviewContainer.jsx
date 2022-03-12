@@ -8,23 +8,26 @@ import SizeSlider from './SizeSlider';
 import { useState } from 'react';
 import SelectFileType from './SelectFileType';
 import DownloadButton from './DownloadButton';
+import { Box } from '@mui/material';
+import useGenerateQR from '../../../hooks/useGenerateQR';
 
-const PreviewContainer = ({ qrCode, options, setOptions }) => {
+const PreviewContainer = ({ options, setOptions }) => {
     const [fileExt, setFileExt] = useState("svg");
+    const qrCode = useGenerateQR(options);
 
     return (
-        <>
-            <Card sx={{ maxWidth: "100%" }}>
+        <Box>
+            <Card display='flex' height="100%">
                 <PreviewQR qrCode={qrCode} />
                 <CardContent>
                     <SizeSlider options={options} setOptions={setOptions} />
                 </CardContent>
-                <CardActions sx={{ justifyContent: 'space-evenly' }}>
+                <CardActions sx={{ paddingY: 3, justifyContent: 'space-evenly' }}>
                     <DownloadButton qrCode={qrCode} fileExt={fileExt} />
                     <SelectFileType fileExt={fileExt} setFileExt={setFileExt} />
                 </CardActions>
             </Card>
-        </>
+        </Box >
     );
 }
 
