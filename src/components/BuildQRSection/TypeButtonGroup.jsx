@@ -9,7 +9,6 @@ import EmailIcon from '@mui/icons-material/Email';
 import SmsIcon from '@mui/icons-material/Sms';
 import NetworkWifiIcon from '@mui/icons-material/NetworkWifi';
 import EventNoteIcon from '@mui/icons-material/EventNote';
-import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 import PhoneRounded from "@mui/icons-material/PhoneRounded";
 
 const TypeArray = [
@@ -21,8 +20,7 @@ const TypeArray = [
     { type: 'PHONE', icon: <PhoneRounded /> },
     { type: 'SMS', icon: <SmsIcon /> },
     { type: 'WIFI', icon: <NetworkWifiIcon /> },
-    { type: 'EVENT', icon: <EventNoteIcon /> },
-    { type: 'CRYPTO', icon: <MonetizationOnIcon /> }
+    { type: 'EVENT', icon: <EventNoteIcon /> }
 ];
 
 const TypeButtonGroup = ({ type, setType }) => {

@@ -5,7 +5,6 @@ import Vcard from "../components/BuildQRSection/Settings/Step2_Content/forms/Vca
 import Location from "../components/BuildQRSection/Settings/Step2_Content/forms/Location";
 import Event from "../components/BuildQRSection/Settings/Step2_Content/forms/Event";
 import Wifi from "../components/BuildQRSection/Settings/Step2_Content/forms/Wifi";
-import Crypto from "../components/BuildQRSection/Settings/Step2_Content/forms/Crypto";
 import Email from "../components/BuildQRSection/Settings/Step2_Content/forms/Email";
 import Phone from "../components/BuildQRSection/Settings/Step2_Content/forms/Phone";
 import Sms from "../components/BuildQRSection/Settings/Step2_Content/forms/Sms";
@@ -27,8 +26,6 @@ const useFormPicker = (qrType, setOptions) => {
                 setForm(<Event setOptions={setOptions} />); break;
             case 'WIFI':
                 setForm(<Wifi setOptions={setOptions} />); break;
-            case 'CRYPTO':
-                setForm(<Crypto setOptions={setOptions} />); break;
             case 'EMAIL':
                 setForm(<Email setOptions={setOptions} />); break;
             case 'PHONE':

@@ -1,13 +1,8 @@
 import { Button, TextField } from "@mui/material";
 import { Grid } from "@mui/material";
 import { useFormik } from "formik";
-import { Stack } from "@mui/material";
-import AdapterDateFns from '@mui/lab/AdapterDateFns';
-import LocalizationProvider from '@mui/lab/LocalizationProvider';
-import DateTimePicker from '@mui/lab/DateTimePicker';
 import useFormHandleChange from "../../../../../hooks/useFormHandleChange";
 import useLocalStorage from "../../../../../hooks/useLocalStorage";
-import { useState } from "react";
 
 const Event = ({ setOptions }) => {
     const [summary, setSummary] = useLocalStorage("eventSummary", "")

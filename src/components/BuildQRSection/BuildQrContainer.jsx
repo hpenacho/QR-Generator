@@ -14,7 +14,6 @@ import StyleIcon from '@mui/icons-material/Style';
 import TypeButtonGroup from "./TypeButtonGroup";
 import { IconButton } from "@mui/material";
 import DefaultOptions from "./DefaultOptions";
-import useGenerateQR from "../../hooks/useGenerateQR";
 import HelpIcon from '@mui/icons-material/HelpRounded';
 import { Tooltip } from "@mui/material";
 import { Grid } from "@mui/material";
