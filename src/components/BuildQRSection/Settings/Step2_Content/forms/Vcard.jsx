@@ -13,7 +13,7 @@ const Vcard = ({ setOptions }) => {
     const [workphone, setWorkphone] = useLocalStorage("vWorkPhone")
     const [email, setEmail] = useLocalStorage("vEmail", "")
     const [website, setWebsite] = useLocalStorage("vWebsite", "")
-    const [address, setAddress] = useLocalStorage("vAddress")
+    const [address, setAddress] = useLocalStorage("vAddress", "")
 
     const formik = useFormik({
         initialValues: {
