@@ -1,5 +1,4 @@
 import { Button } from "@mui/material";
-import { Stack } from "@mui/material";
 import { TextField } from "@mui/material";
 import * as yup from 'yup';
 import { Grid } from "@mui/material";
@@ -8,14 +7,16 @@ import useFormHandleChange from "../../../../../hooks/useFormHandleChange";
 import useLocalStorage from "../../../../../hooks/useLocalStorage";
 import { FormControl, FormControlLabel, FormLabel } from "@mui/material";
 import { Radio, RadioGroup } from "@mui/material";
-import { useState } from "react";
 import { Box } from "@mui/material";
 
-/*const validationSchema = yup.object({
-    email: yup
-        .string('Enter an email')
-        .email('Enter a valid email')
-}); */
+const coordinatesSchema = yup.object().shape({
+    latitude: yup.string().required().matches(/^(\+|-)?(?:90(?:(?:\.0{1,6})?)|(?:[0-9]|[1-8][0-9])(?:(?:\.[0-9]{1,6})?))$/, "Insert a valid latitude (-90° to 90°)"),
+    longitude: yup.string().required().matches(/^(\+|-)?(?:180(?:(?:\.0{1,6})?)|(?:[0-9]|[1-9][0-9]|1[0-7][0-9])(?:(?:\.[0-9]{1,6})?))$/, "Insert a valid longitude (-180° to 180°)")
+})
+
+const addressSchema = yup.object().shape({
+    address: yup.string().required("This is a required field.")
+})
 
 const Location = ({ setOptions }) => {
 
@@ -30,7 +31,7 @@ const Location = ({ setOptions }) => {
             latitude: latitude,
             longitude: longitude,
         },
-        //validationSchema: validationSchema,
+        validationSchema: isCoordinates === 'true' ? coordinatesSchema : addressSchema,
         onSubmit: values => {
             const location = isCoordinates === 'true' ? `${values.latitude},${values.longitude}` : values.address;
             setOptions(options => ({
@@ -74,6 +75,8 @@ const Location = ({ setOptions }) => {
                                 label="Address"
                                 value={formik.values.address}
                                 onChange={(e) => setInputValue("address", e.target.value)}
+                                error={formik.touched.address && Boolean(formik.errors.address)}
+                                helperText={formik.touched.address && formik.errors.address}
                             />
                         </Grid>
                     }
@@ -87,9 +90,10 @@ const Location = ({ setOptions }) => {
                                     label="Latitude"
                                     value={formik.values.latitude}
                                     onChange={(e) => setInputValue("latitude", e.target.value)}
+                                    error={formik.touched.latitude && Boolean(formik.errors.latitude)}
+                                    helperText={formik.touched.latitude && formik.errors.latitude}
                                 />
                             </Grid>
-
                             <Grid item xs={12} sm={6}>
                                 <TextField
                                     fullWidth
@@ -98,11 +102,12 @@ const Location = ({ setOptions }) => {
                                     label="Longitude"
                                     value={formik.values.longitude}
                                     onChange={(e) => setInputValue("longitude", e.target.value)}
+                                    error={formik.touched.longitude && Boolean(formik.errors.longitude)}
+                                    helperText={formik.touched.longitude && formik.errors.longitude}
                                 />
                             </Grid>
                         </>
                     }
-
                     <Grid container justifyContent='center' item xs={12}>
                         <Button type="submit" variant="contained" color="primary">
                             Update QR
