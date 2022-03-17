@@ -15,7 +15,7 @@ const validationSchema = yup.object({
 
 const Sms = ({ setOptions }) => {
 
-    const [phone, setPhone] = useLocalStorage("smsphone", "+351 123 456 789")
+    const [phone, setPhone] = useLocalStorage("smsphone", "")
     const [message, setMessage] = useLocalStorage("smsmessage", "")
     const formik = useFormik({
         initialValues: {
@@ -42,6 +42,7 @@ const Sms = ({ setOptions }) => {
                     id="phone"
                     name="phone"
                     label="Phone"
+                    placeholder="+351 123 456 789"
                     value={formik.values.phone}
                     onChange={(e) => setInputValue("phone", e.target.value)}
                     error={formik.touched.phone && Boolean(formik.errors.phone)}
