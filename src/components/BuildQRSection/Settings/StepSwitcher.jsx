@@ -5,7 +5,7 @@ import Style from "./Step5_Style/Style";
 import Finish from "./Step6_Finish/Finish";
 import useFormPicker from "../../../hooks/useFormPicker";
 
-const StepSwitcher = ({ activeStep, setActiveStep, qrType, setOptions }) => {
+const StepSwitcher = ({ activeStep, qrType, setOptions }) => {
     const form = useFormPicker(qrType, setOptions)
 
     switch (activeStep) {

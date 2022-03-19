@@ -7,10 +7,17 @@ import { FormControl } from "@mui/material";
 import { InputLabel } from "@mui/material";
 import { Select } from "@mui/material";
 import { MenuItem } from "@mui/material";
+import { OutlinedInput } from "@mui/material";
+import { useState } from "react";
+import { IconButton } from "@mui/material";
+import { InputAdornment } from "@mui/material";
+import { VisibilityOff } from "@mui/icons-material";
+import { Visibility } from "@mui/icons-material";
 
 const Wifi = ({ setOptions }) => {
     const [wifiname, setWifiname] = useLocalStorage("networkname", "")
     const [password, setPassword] = useLocalStorage("networkpassword", "")
+    const [showPassword, setShowPassword] = useState(false)
     const [encryption, setEncryption] = useLocalStorage("networkencryption", "WPA")
 
     const formik = useFormik({
@@ -44,15 +51,33 @@ const Wifi = ({ setOptions }) => {
                     onChange={(e) => setInputValue("wifiname", e.target.value)}
                     sx={{ maxWidth: 400 }}
                 />
-                <TextField
-                    fullWidth
-                    id="password"
-                    name="password"
-                    label="Password"
-                    value={formik.values.password}
-                    onChange={(e) => setInputValue("password", e.target.value)}
-                    sx={{ maxWidth: 300 }}
-                />
+
+                <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
+                    <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+                    <OutlinedInput
+                        fullWidth
+                        id="password"
+                        name="password"
+                        label="Password"
+                        type={showPassword ? 'text' : 'password'}
+                        value={formik.values.password}
+                        onChange={(e) => setInputValue("password", e.target.value)}
+                        sx={{ maxWidth: 300 }}
+                        endAdornment={
+                            <InputAdornment position="end">
+                                <IconButton
+                                    aria-label="toggle password visibility"
+                                    onClick={() => setShowPassword(!showPassword)}
+                                    onMouseDown={(e) => e.preventDefault()}
+                                    edge="end"
+                                >
+                                    {showPassword ? <VisibilityOff /> : <Visibility />}
+                                </IconButton>
+                            </InputAdornment>
+                        }
+                    />
+                </FormControl>
+
                 <FormControl>
                     <InputLabel id="encryptionLabel">Encryption</InputLabel>
                     <Select

@@ -53,7 +53,7 @@ const BuildQrContainer = () => {
                             <HelpIcon />
                         </IconButton>
                     </Tooltip>
-                    <TypeButtonGroup type={qrType} setType={setQrType} />
+                    <TypeButtonGroup type={qrType} setType={setQrType} activeStep={activeStep} setActiveStep={setActiveStep} />
                 </Stack>
 
                 <Paper elevation={4} sx={{ flexGrow: 1, borderRadius: 3 }}>

@@ -23,7 +23,7 @@ const TypeArray = [
     { type: 'EVENT', icon: <EventNoteIcon /> }
 ];
 
-const TypeButtonGroup = ({ type, setType }) => {
+const TypeButtonGroup = ({ type, setType, setActiveStep }) => {
 
     const TypeButton = styled(ToggleButton)({
         backgroundColor: '#1C1C1C',
@@ -37,6 +37,7 @@ const TypeButtonGroup = ({ type, setType }) => {
         if (chosenType !== null) {
             setType(chosenType);
         }
+        setActiveStep(0)
     };
 
 

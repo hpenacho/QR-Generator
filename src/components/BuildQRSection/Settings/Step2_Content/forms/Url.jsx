@@ -7,7 +7,7 @@ import useFormHandleChange from "../../../../../hooks/useFormHandleChange";
 import useLocalStorage from "../../../../../hooks/useLocalStorage";
 
 const Url = ({ setOptions }) => {
-    const [website, setWebsite] = useLocalStorage("url", "https://www.linkedin.com/in/hugopenacho/")
+    const [website, setWebsite] = useLocalStorage("url", "")
 
     const formik = useFormik({
         initialValues: {
@@ -31,6 +31,7 @@ const Url = ({ setOptions }) => {
                     id="website"
                     name="website"
                     label="URL"
+                    placeholder="https://www.linkedin.com/in/hugopenacho/"
                     value={formik.values.website}
                     onChange={(e) => setInputValue("website", e.target.value)}
                     sx={{ maxWidth: 450 }}
