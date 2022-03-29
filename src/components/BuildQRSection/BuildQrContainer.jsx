@@ -63,9 +63,7 @@ const BuildQrContainer = () => {
                             <Grid>
                                 <CurrentStep
                                     activeStep={activeStep}
-                                    setActiveStep={setActiveStep}
                                     qrType={qrType}
-                                    setQrType={setQrType}
                                     setOptions={setOptions}
                                 />
                             </Grid>
