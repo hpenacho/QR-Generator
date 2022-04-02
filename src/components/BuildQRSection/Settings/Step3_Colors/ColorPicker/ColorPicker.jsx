@@ -6,6 +6,7 @@ import "./ColorPicker.css"
 import { useEffect } from "react";
 import { Box } from "@mui/material";
 import TagIcon from '@mui/icons-material/Tag';
+import { Stack } from "@mui/material";
 
 const ColorPicker = ({ color, setColor }) => {
     const popover = useRef();
@@ -20,14 +21,15 @@ const ColorPicker = ({ color, setColor }) => {
 
     return (
         <div className="picker">
-            <Box display='flex' justifyContent='center'>
+            <Stack direction='row' spacing={0.5} justifyContent='center'>
+
                 <div
                     className="swatch"
                     style={{ backgroundColor: color }}
                     onClick={() => toggle(true)}
                 />
                 <HexColorInput color={value} onChange={(e) => { setValue(e) }} />
-            </Box>
+            </Stack>
             {isOpen && (
                 <div className="popover" ref={popover}>
                     <HexColorPicker color={value} onChange={(e) => { setValue(e) }} />

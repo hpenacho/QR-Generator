@@ -14,8 +14,6 @@ const Colors = ({ setOptions }) => {
     const [foregroundColor2, setForegroundColor2] = useLocalStorage("foregroundColor2", "")
     const [isGradient, setIsGradient] = useLocalStorage("isGradient", "false")
 
-    console.log(foregroundColor)
-
     const formik = useFormik({
         initialValues: {
             foregroundColor: foregroundColor,
